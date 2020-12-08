@@ -1,0 +1,26 @@
+<p>Last updated at: {{ overviewData.last_updated.value }} </p>
+
+<table class="table table-borderless table-dark back">
+  <thead>
+    <tr>
+      <th scope="col">Description</th>
+      <th scope="col">Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of overviewData.tableData">
+      <td>{{ item.description }}</td>
+      <td>{{ item.value }}</td>
+    </tr>
+    <tr >
+      <td></td>
+      <td></td>
+    </tr>
+
+
+</table>
+<br>
+<button type="button" class="btn btn-primary btn-lg">Show India Map <img src="../../assets/link.svg" alt="" width="19" height="19"></button>
+<hr>
+<h3>India Recovery Rate: <strong> {{ this.overviewData.recovery_rate }} </strong> % </h3>
+<hr>
