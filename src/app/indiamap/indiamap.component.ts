@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-indiamap',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndiamapComponent implements OnInit {
 
+  @ViewChild('indiachart', { static: true })
+  indiachart!: ElementRef;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

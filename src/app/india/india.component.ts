@@ -57,6 +57,11 @@ export class IndiaComponent implements OnInit {
         "key" : "migratedother",
         "value" : 0
       },
+      {
+        "description" : "----",
+        "key" : "state",
+        "value" : 0
+      },
     ],
     "recovery_rate" : 0,
   }
