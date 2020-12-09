@@ -13,9 +13,9 @@
     </tr>
   </tbody>
 </table>
-<button type="button" class="btn btn-primary btn-lg ">
-  <a routerLink="/worldmap" routerLinkActive="active"> Show World Map <img src="../../assets/link.svg" alt="" width="19" height="19"> </a>
-  </button>
+<button type="button" class="btn btn-primary btn-lg " (click)="tomap()">
+   Show World Map <img src="../../assets/link.svg" alt="" width="19" height="19">
+</button>
 <hr>
 <h3>World Recovery Rate: <strong> {{ this.overviewData.recovery_rate }} </strong> % </h3>
 <hr>

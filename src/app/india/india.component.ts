@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { ApiService } from '../api.service';
 import { numberWithCommas } from '../helper'
@@ -62,7 +63,8 @@ export class IndiaComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private ref: ChangeDetectorRef) { }
+    private ref: ChangeDetectorRef,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.apiService.indiaData()
@@ -79,6 +81,7 @@ export class IndiaComponent implements OnInit {
   }
 
   setOverviewData(data: any) {
+    this.apiService.india_data = data;
     let india_total = data.total_values;
     this.overviewData.last_updated.value = india_total["lastupdatedtime"];
     // table data
@@ -89,6 +92,10 @@ export class IndiaComponent implements OnInit {
     let recovered = india_total["recovered"];
     let cases = india_total["confirmed"];
     this.overviewData.recovery_rate = +((+recovered * 100) / (+cases)).toFixed(2);
+  }
+
+  tomap() {
+    this.router.navigate(['/indiamap']);
   }
 
 }

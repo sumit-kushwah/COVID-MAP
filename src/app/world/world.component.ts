@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-world',
@@ -67,7 +68,8 @@ export class WorldComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private ref: ChangeDetectorRef) { }
+    private ref: ChangeDetectorRef,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.apiService.wordData()
@@ -84,6 +86,7 @@ export class WorldComponent implements OnInit {
   }
 
   setOverviewData(data: any) {
+    this.apiService.world_data = data;
     let world_total = data.world_total;
     this.overviewData.last_updated.value = world_total["statistic_taken_at"];
     // table data
@@ -94,6 +97,10 @@ export class WorldComponent implements OnInit {
     let recovered = world_total["total_recovered"].replace(re, "");
     let cases = world_total["total_cases"].replace(re, "");
     this.overviewData.recovery_rate = +((+recovered * 100) / (+cases)).toFixed(2);
+  }
+
+  tomap() {
+    this.router.navigate(['/worldmap']);
   }
 
 }
