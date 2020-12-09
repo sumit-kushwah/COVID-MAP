@@ -7,18 +7,17 @@ import { IndiaModule } from './india/india.module';
 import { WorldModule } from './world/world.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IndiamapComponent } from './indiamap/indiamap.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndiamapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IndiaModule,
-    WorldModule,
     HttpClientModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

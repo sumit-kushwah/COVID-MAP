@@ -1,5 +1,5 @@
 <p>Last updated at: {{ overviewData.last_updated.value }} </p>
-<table class="table table-borderless table-dark back">
+<table class="table table-striped table-dark ">
   <thead>
     <tr>
       <th scope="col">Description</th>
@@ -13,7 +13,10 @@
     </tr>
   </tbody>
 </table>
-<button type="button" class="btn btn-primary btn-lg ">Show World Map  <img src="../../assets/link.svg" alt="" width="19" height="19"></button>
+<button type="button" class="btn btn-primary btn-lg ">
+  <a routerLink="/worldmap" routerLinkActive="active"> Show World Map <img src="../../assets/link.svg" alt="" width="19" height="19"> </a>
+  </button>
 <hr>
 <h3>World Recovery Rate: <strong> {{ this.overviewData.recovery_rate }} </strong> % </h3>
 <hr>
+
