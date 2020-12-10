@@ -1,0 +1,9 @@
+.app-footer {
+  position: bottom;
+  left: 0;
+  bottom: 0;
+  color: white;
+}
+#sticky-footer {
+  flex-shrink: none;
+}

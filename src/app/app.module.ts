@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 import { IndiamapModule } from './indiamap/indiamap.module';
 import { WorldmapModule } from './worldmap/worldmap.module';
 import { IndiaTimelineModule } from './india-timeline/india-timeline.module';
+import { FooterModule } from './footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { IndiaTimelineModule } from './india-timeline/india-timeline.module';
     IndiamapModule,
     WorldmapModule,
     IndiaTimelineModule,
+    FooterModule,
     BrowserAnimationsModule,
   ],
   providers: [],
