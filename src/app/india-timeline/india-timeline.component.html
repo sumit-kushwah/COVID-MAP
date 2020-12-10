@@ -5,14 +5,18 @@
     </div>
     <div class="col-xs-12 col-sm-3 pt-4">
       <select
+        (change)="onSelect($event)"
         class="form-select form-select-lg bg-dark text-color"
         aria-label=".form-select-sm example"
       >
-        <option selected value="active">Active Cases</option>
-        <option value="confirmed">Confirmed Cases</option>
-        <option value="deaths">Deaths</option>
-        <option value="recovered">Recovered Cases</option>
+        <option selected value="dailyconfirmed">Daily Confirmed</option>
+        <option value="totalconfirmed">Total Confirmed</option>
+        <option value="dailyrecovered">Daily Recovered</option>
+        <option value="totalrecovered">Total Recovered</option>
+        <option value="dailydeceased">Daily Deaths </option>
+        <option value="totaldeceased">Total Deaths</option>
       </select>
     </div>
   </div>
+  <div #timeline class="chart"></div>
 </div>
