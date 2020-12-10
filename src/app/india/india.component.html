@@ -13,9 +13,19 @@
       <td>{{ item.value }}</td>
     </tr>
 </table>
-<button type="button" class="btn btn-primary btn-lg " (click)="tomap()">
-  Show India Map <img src="../../assets/link.svg" alt="" width="19" height="19">
-</button>
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn btn-primary btn-lg " (click)="tomap()">
+      Show India Map <img src="../../assets/link.svg" alt="" width="19" height="19">
+    </button>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-primary btn-lg " (click)="totimeline()">
+      Show India Timeline <img src="../../assets/link.svg" alt="" width="19" height="19">
+    </button>
+  </div>
+</div>
+
 <hr>
 <h3>India Recovery Rate: <strong> {{ this.overviewData.recovery_rate }} </strong> % </h3>
 <hr>

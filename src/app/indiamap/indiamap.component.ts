@@ -1,6 +1,12 @@
-import { number } from '@amcharts/amcharts4/core';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
 import { tap } from 'rxjs/operators';
 import { ApiService } from '../api.service';
 import { mapPlotter, barPlotter } from './helper';
@@ -12,50 +18,65 @@ import { mapPlotter, barPlotter } from './helper';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IndiamapComponent implements OnInit {
-
   @ViewChild('indiachart', { static: true })
   indiachart!: ElementRef;
   @ViewChild('barchart', { static: true })
   barchart!: ElementRef;
 
-  plotdata: { id: string, value: number }[] = [];
+  subscriptions: Subscription[] = [];
+
+  chartRefDict:any = [];
+
+  plotdata: { id: string; value: number }[] = [];
   constructor(
     private apiService: ApiService,
-    private changeDetectorRef: ChangeDetectorRef) { }
+    private changeDetectorRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.apiService.indiaData().pipe(
-      tap((data) => this.setPlotData(data, "active")),
-      tap(() => mapPlotter(this.indiachart.nativeElement, this.plotdata)),
-      tap(() => barPlotter(this.barchart.nativeElement, this.plotdata))
-    ).subscribe(() => {}, error => console.log(error));
-
-    this.selectControl.valueChanges.subscribe((value: any) => {
-      console.log('Selected value:', value);
-    })
+    this.subscriptions.push(this.apiService
+      .indiaData()
+      .pipe(
+        tap((data) => this.apiService.india_data = data),
+        tap(() => this.setPlotForKey('active')),
+      )
+      .subscribe(
+        () => {},
+        (error) => console.log(error)
+      ));
   }
 
-  setPlotData(data: any, key: string): void {
-    this.apiService.india_data = data;
-    let states = data["state_wise"];
-    Object.values(states).forEach((state:any) => {
+  setPlotForKey(key: string): void {
+    this.plotdata = [];
+    let data: any = this.apiService.india_data;
+    let states = data['state_wise'];
+    Object.values(states).forEach((state: any) => {
       this.plotdata.push({
-        id: "IN-" + state.statecode,
+        id: 'IN-' + state.statecode,
         value: +state[key],
-      })
-    })
+      });
+    });
+    this.chartDestroy();
+    this.chartRefDict.push(mapPlotter(this.indiachart.nativeElement, this.plotdata));
+    this.chartRefDict.push(barPlotter(this.barchart.nativeElement, this.plotdata));
   }
 
-  selectedkey! : string;
-
-  selectControl = new FormControl('dropdown');
-
-  onSelect(key: string) {
-    console.log(this.selectedkey)
+  onSelect(event: any) {
+    let key = event.target.value;
+    this.setPlotForKey(key);
   }
 
   onDetectChanges() {
     this.changeDetectorRef.detectChanges();
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.chartDestroy();
+  }
+
+  chartDestroy() {
+    this.chartRefDict.forEach((chart:any) => { if (chart) { chart.dispose(); } });
+    this.chartRefDict = [];
+  }
 }

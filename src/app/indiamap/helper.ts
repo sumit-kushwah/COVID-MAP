@@ -7,6 +7,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 am4core.useTheme(am4themes_dark);
 am4core.useTheme(am4themes_animated);
+am4core.options.autoDispose = true;
 
 export function mapPlotter(el: HTMLElement, data: { id: string, value: number }[]) {
   // Themes end
@@ -47,6 +48,7 @@ export function mapPlotter(el: HTMLElement, data: { id: string, value: number }[
   let hs = polygonTemplate.states.create("hover");
   hs.properties.fill = am4core.color("#3c5bdc");
 
+  return chart;
 }
 
 export function barPlotter(el: HTMLElement, data: any) {
@@ -54,7 +56,7 @@ export function barPlotter(el: HTMLElement, data: any) {
   chart.scrollbarX = new am4core.Scrollbar();
 
   // Add data
-  chart.data = data.slice(0, 10);
+  chart.data = data.sort((a:any, b:any) => { if (a.value > b.value) return -1; return 1 }).slice(0, 10);
 
   // Create axes
   let categoryAxis: any = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -97,4 +99,5 @@ export function barPlotter(el: HTMLElement, data: any) {
   // Cursor
   chart.cursor = new am4charts.XYCursor();
 
+  return chart;
 }

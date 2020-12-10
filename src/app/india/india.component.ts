@@ -103,4 +103,8 @@ export class IndiaComponent implements OnInit {
     this.router.navigate(['/indiamap']);
   }
 
+  totimeline() {
+    this.router.navigate(['/indiatimeline']);
+  }
+
 }
