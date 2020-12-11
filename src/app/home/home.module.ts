@@ -5,7 +5,6 @@ import { IndiaModule } from '../india/india.module';
 import { WorldModule } from '../world/world.module';
 
 
-
 @NgModule({
   declarations: [HomeComponent],
   imports: [

@@ -17,12 +17,22 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div #indiachart class="chart"></div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <div #barchart class="chart"></div>
+  <div style="position: relative">
+    <ngx-spinner
+      bdColor="rgb(12, 17, 24)"
+      size="large"
+      color="#4f7931"
+      type="ball-circus"
+      [fullScreen]="false"
+    >
+    </ngx-spinner>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div #indiachart class="chart"></div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div #barchart class="chart"></div>
+      </div>
     </div>
   </div>
 </div>

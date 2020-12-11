@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { ApiService } from '../api.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-world',
@@ -69,12 +70,15 @@ export class WorldComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private ref: ChangeDetectorRef,
-    private router: Router) { }
+    private router: Router,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.apiService.wordData()
     .pipe(
       tap((data: any) => this.setOverviewData(data)),
+      tap(() => this.spinner.hide()),
       tap(() => this.onDetectChanges()),
     )
     .subscribe((data) => {

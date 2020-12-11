@@ -1,21 +1,30 @@
 <p>Last updated at: {{ overviewData.last_updated.value }} </p>
-<table class="table table-striped table-dark ">
-  <thead>
-    <tr>
-      <th scope="col">Description</th>
-      <th scope="col">Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of overviewData.tableData">
-      <td>{{ item.description }}</td>
-      <td>{{ item.value }}</td>
-    </tr>
-  </tbody>
-</table>
+<div style="position: relative">
+  <ngx-spinner
+  bdColor = "rgb(32, 37, 41)"
+  size = "medium"
+  color = "#4f7931"
+  type = "ball-beat"
+  [fullScreen] = "false">
+</ngx-spinner>
+      <table class="table table-striped table-dark ">
+        <thead>
+          <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of overviewData.tableData">
+            <td>{{ item.description }}</td>
+            <td>{{ item.value }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
 <button type="button" class="btn btn-primary btn-lg " (click)="tomap()">
    Show World Map <img src="../../assets/link.svg" alt="" width="19" height="19">
 </button>
 <hr>
 <h3>World Recovery Rate: <strong> {{ this.overviewData.recovery_rate }} </strong> % </h3>
-

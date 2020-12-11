@@ -18,5 +18,15 @@
       </select>
     </div>
   </div>
-  <div #timeline class="chart"></div>
+  <div style="position: relative">
+    <ngx-spinner
+      bdColor="rgb(12, 17, 24)"
+      size="large"
+      color="#4f7931"
+      type="ball-circus"
+      [fullScreen]="false"
+    >
+    </ngx-spinner>
+    <div #timeline class="chart"></div>
+  </div>
 </div>

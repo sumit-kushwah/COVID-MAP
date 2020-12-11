@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { ApiService } from '../api.service';
 import { numberWithCommas } from '../helper'
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-india',
@@ -69,12 +70,15 @@ export class IndiaComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private ref: ChangeDetectorRef,
-    private router: Router) { }
+    private router: Router,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.apiService.indiaData()
     .pipe(
       tap((data: any) => this.setOverviewData(data)),
+      tap(() => this.spinner.hide()),
       tap(() => this.onDetectChanges()),
     )
     .subscribe((data) => {
