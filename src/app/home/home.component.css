@@ -1,10 +1,12 @@
 .maintitle {
-  font-size: 7vw;
+  font-size: 5vw;
   margin-bottom: 20px;
   color:#73f280;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 900;
+  font-family: 'Nunito', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .text-color {
-  color: rgba(111,66,193);
+  font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: rgb(244, 242, 248);
 }

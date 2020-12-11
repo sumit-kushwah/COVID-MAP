@@ -6,4 +6,5 @@
 }
 #sticky-footer {
   flex-shrink: none;
+  font-family: 'Nunito', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

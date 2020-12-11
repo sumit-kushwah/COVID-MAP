@@ -19,12 +19,14 @@
             <td>{{ item.description }}</td>
             <td>{{ item.value }}</td>
           </tr>
+          <tr class="table-success">
+            <td>Recovery Rate</td>
+            <td>{{ overviewData.recovery_rate }} %</td>
+          </tr>
         </tbody>
       </table>
 </div>
 
-<button type="button" class="btn btn-primary btn-lg " (click)="tomap()">
+<button type="button" class="btn btn-dark btn-lg " (click)="tomap()">
    Show World Map <img src="../../assets/link.svg" alt="" width="19" height="19">
 </button>
-<hr>
-<h3>World Recovery Rate: <strong> {{ this.overviewData.recovery_rate }} </strong> % </h3>
