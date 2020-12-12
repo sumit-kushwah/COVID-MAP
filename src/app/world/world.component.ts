@@ -75,7 +75,7 @@ export class WorldComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.apiService.wordData()
+    this.apiService.worldData()
     .pipe(
       tap((data: any) => this.setOverviewData(data)),
       tap(() => this.spinner.hide()),

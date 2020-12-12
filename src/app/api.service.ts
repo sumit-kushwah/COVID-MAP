@@ -25,7 +25,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  wordData():Observable<any> {
+  worldData():Observable<any> {
     if (this.world_data) {
       return of(this.world_data);
     }
