@@ -1,4 +1,4 @@
-export const countriesCode = {
+export const countriesCode: any = {
   "Afghanistan" : "AF",
   "Aland Islands" : "AX",
   "Albania" : "AL",
@@ -56,7 +56,7 @@ export const countriesCode = {
   "Croatia" : "HR",
   "Cuba" : "CU",
   "Cyprus" : "CY",
-  "Czech Republic" : "CZ",
+  "Czechia" : "CZ",
   "Denmark" : "DK",
   "Djibouti" : "DJ",
   "Dominica" : "DM",

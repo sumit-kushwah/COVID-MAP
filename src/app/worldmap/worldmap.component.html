@@ -1,1 +1,62 @@
-<p>worldmap works!</p>
+<div class="container">
+  <div class="row mt-3 mb-3">
+    <div class="col-xs-12 col-sm-7 mt-2 mb-3">
+      <h1 class="maintitle">WORLD COVID-19 MAP</h1>
+    </div>
+    <div class="col-xs-12 col-sm-3 pt-4">
+      <select
+        (change)="onCaseSelect($event)"
+        class="form-select form-select-lg bg-dark text-color"
+        aria-label=".form-select-sm example"
+      >
+        <option selected value="active_cases">Active Cases</option>
+        <option value="cases">Confirmed Cases</option>
+        <option value="deaths">Deaths</option>
+        <option value="total_recovered">Recovered Cases</option>
+        <option value="serious_critical">Serious Critical</option>
+        <option value="total_cases_per_1m_population">Cases per million Population</option>
+        <option value="total_tests">Total Tests</option>
+        <option value="tests_per_1m_population">Tests per million Population</option>
+      </select>
+    </div>
+
+    <div class="col-xs-12 col-sm-2 pt-4">
+      <select
+        (change)="onMapSelect($event)"
+        class="form-select form-select-lg bg-dark text-color"
+        aria-label=".form-select-sm example"
+      >
+      <option selected value="flat">Flat Map</option>
+        <option  value="globe">Globe</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="position: relative">
+    <ngx-spinner
+      bdColor="rgb(12, 17, 24)"
+      size="large"
+      color="#4f7931"
+      type="ball-circus"
+      [fullScreen]="false"
+    >
+    </ngx-spinner>
+    <div class="row mb-4">
+      <div #worldchart class="chart"></div>
+    </div>
+  </div>
+  <h5 class="mt-3 mb-4 text-color">Top 20 Countries Bar Chart</h5>
+    <div style="position: relative">
+      <ngx-spinner
+        bdColor="rgb(12, 17, 24)"
+        size="large"
+        color="#4f7931"
+        type="ball-circus"
+        [fullScreen]="false"
+      >
+      </ngx-spinner>
+      <div class="row">
+        <div #barchart class="chart"></div>
+      </div>
+    </div>
+</div>
