@@ -11,6 +11,7 @@ import { IndiamapModule } from './indiamap/indiamap.module';
 import { WorldmapModule } from './worldmap/worldmap.module';
 import { IndiaTimelineModule } from './india-timeline/india-timeline.module';
 import { FooterModule } from './footer/footer.module';
+import { TweetsModule } from './tweets/tweets.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FooterModule } from './footer/footer.module';
     WorldmapModule,
     IndiaTimelineModule,
     FooterModule,
+    TweetsModule,
     BrowserAnimationsModule,
   ],
   providers: [],
