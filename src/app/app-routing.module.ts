@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GalleryComponent } from './gallery/gallery.component';
 import { HomeComponent } from './home/home.component';
 import { IndiaTimelineComponent } from './india-timeline/india-timeline.component';
 import { IndiamapComponent } from './indiamap/indiamap.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'worldmap', component: WorldmapComponent },
   { path: 'indiatimeline', component: IndiaTimelineComponent },
   { path: 'tweets', component: TweetsComponent },
+  { path: 'gallery', component: GalleryComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
