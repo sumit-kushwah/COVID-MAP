@@ -1,0 +1,17 @@
+.maintitle {
+  font-size: 30px;
+  color:#73f280;
+  font-weight: 900;
+  font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.text-color {
+  font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: rgb(142, 212, 245);
+}
+
+.navitem {
+  font-size: 19px;
+  color: #73f280;
+  font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
