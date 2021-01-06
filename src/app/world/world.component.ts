@@ -107,4 +107,13 @@ export class WorldComponent implements OnInit {
     this.router.navigate(['/worldmap']);
   }
 
+  totimeline() {
+    window.location.href='https://covid19.who.int/';
+    window.scroll({
+      top: 200,
+      left: 100,
+      behavior: 'smooth'
+    });
+  }
+
 }
