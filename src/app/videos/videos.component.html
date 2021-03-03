@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="input-group mb-3">
+    <input
+      [(ngModel)]="searchText"
+      type="text"
+      style="color: white"
+      class="form-control bg-dark"
+      placeholder="Search Other videos"
+      aria-label="Recipient's username"
+      aria-describedby="button-addon2"
+    />
+    <button
+      class="btn btn-outline-secondary bg-dark"
+      type="button"
+      id="button-addon2"
+      (click)="onCustomSearch()"
+    >
+      Search
+    </button>
+  </div>
+  <div class="row text-center" *ngIf="error" style="color: red" [innerHTML]="error">
+  </div>
+  <div class="row" *ngFor="let i of rows">
+    <div class="col" *ngFor="let j of cols">
+      <app-video-item [url]="urls[3 * i + j]"></app-video-item>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px">
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+      <button type="button" class="btn btn-danger" (click)="onPrev()">
+        Previous
+      </button>
+      <button type="button" class="btn btn-success" (click)="onNext()">
+        Next
+      </button>
+    </div>
+  </div>
+</div>
