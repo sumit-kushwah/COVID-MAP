@@ -1,10 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from "rxjs";
-import { catchError, map } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
 const baseUrl = "https://www.googleapis.com/youtube/v3/search";
-const ApiKey = "AIzaSyBZ68m0ic1DPDuHGqvFX556vt28wlpmxBo";
+const keys = [
+  "AIzaSyBZ68m0ic1DPDuHGqvFX556vt28wlpmxBo",
+  "AIzaSyB3Ef9f7qZ-gpMVFRxcz-t0ZVllsyayGkI",
+]
 
 @Injectable({
   providedIn: 'root',
@@ -15,9 +18,11 @@ export class VideosService {
 
   querySet: string[] = ["covid", "coronavirus", "covid19"];
 
+  index: number = 0;
+
   paramsDict: { [key: string]: any} = {
     "part": ["id"],
-    "key" : ApiKey,
+    "key" : keys[this.index],
     "type" : "video",
     "maxResults": 6,
     "q": this.querySet,
@@ -34,7 +39,7 @@ export class VideosService {
     if (additionalQuerySet["pageToken"]) {
       this.paramsDict["pageToken"] = additionalQuerySet["pageToken"];
     }
-
+    this.paramsDict["key"] = keys[this.index];
     if (!additionalQuerySet["refreshResult"] && this.response) {
       return of(this.response);
     } else {

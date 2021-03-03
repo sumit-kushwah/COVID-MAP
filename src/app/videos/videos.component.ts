@@ -43,12 +43,14 @@ export class VideosComponent implements OnInit {
   }
 
   onNext() {
+    if (this.nextToken == "") return;
     this.additionalQuerySet["pageToken"] = this.nextToken;
     this.additionalQuerySet["refreshResult"] = true;
     this.queryFire();
   }
 
   onPrev() {
+    if (this.prevToken == "") return;
     this.additionalQuerySet["pageToken"] = this.prevToken;
     this.additionalQuerySet["refreshResult"] = true;
     this.queryFire();
@@ -59,16 +61,26 @@ export class VideosComponent implements OnInit {
   queryFire() {
     this.videosService.getVideosUrls(this.additionalQuerySet).subscribe((res) => {
       this.urls = getVideoUrls(res);
+      this.error = undefined;
       if(res["nextPageToken"]) {
         this.nextToken = res["nextPageToken"];
+      } else {
+        this.prevToken = "";
       }
       if(res["prevPageToken"]) {
         this.prevToken = res["prevPageToken"];
+      } else {
+        this.prevToken = "";
       }
       this.onDetectChanges();
     }, error => {
-      this.error = "<h2>" + error["error"]["error"]["message"] + "</h2>";
+      this.videosService.index++;
+      this.error = error["error"]["error"]["errors"][0]["reason"];
       this.onDetectChanges();
     });
+  }
+
+  onRetry() {
+    this.queryFire();
   }
 }

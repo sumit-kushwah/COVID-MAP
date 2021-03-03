@@ -18,7 +18,18 @@
       Search
     </button>
   </div>
-  <div class="row text-center" *ngIf="error" style="color: red" [innerHTML]="error">
+  <div class="row text-center" *ngIf="error" style="color: red">
+    <p>
+      {{ error }}
+      <button
+        style="margin-left: 5px"
+        type="button"
+        class="btn btn-danger"
+        (click)="onRetry()"
+      >
+        Retry
+      </button>
+    </p>
   </div>
   <div class="row" *ngFor="let i of rows">
     <div class="col" *ngFor="let j of cols">
