@@ -73,7 +73,6 @@ export class WorldmapComponent implements OnInit {
         value: value,
       })
     })
-    console.log(countries);
     this.chartDestroy();
     this.plotMap();
     this.chartRefDict.push(barPlotter(this.barchart.nativeElement, this.barchartdata));

@@ -256,9 +256,7 @@ export function barPlotter(el: HTMLElement, data: any) {
   chart.scrollbarX = new am4core.Scrollbar();
 
   // Add data
-  console.log(data)
   data = data.sort((a:any, b:any) => { if ((a.value) > (b.value)) return -1; return 1 }).slice(0, 20);
-  console.log(data);
 
   chart.data = data;
 

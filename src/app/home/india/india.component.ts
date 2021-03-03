@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
-import { ApiService } from '../api.service';
-import { numberWithCommas } from '../helper'
+import { ApiService } from '../../api.service';
+import { numberWithCommas } from '../../helper'
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({

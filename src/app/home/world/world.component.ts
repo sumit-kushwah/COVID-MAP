@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../api.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";

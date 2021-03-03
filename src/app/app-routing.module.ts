@@ -2,52 +2,56 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
   {
     path: 'home',
     loadChildren: () =>
-      import('./home/home-routing.module').then((m) => m.HomeRoutingModule),
+      import('./home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'indiamap',
     loadChildren: () =>
-      import('./indiamap/indiamap-routing.module').then(
-        (m) => m.IndiaMapRoutingModule
+      import('./indiamap/indiamap.module').then(
+        (m) => m.IndiamapModule
       ),
   },
   {
     path: 'worldmap',
     loadChildren: () =>
-      import('./worldmap/worldmap-routing.module').then(
-        (m) => m.WorldMapRoutingModule
+      import('./worldmap/worldmap.module').then(
+        (m) => m.WorldmapModule
       ),
   },
   {
     path: 'indiatimeline',
     loadChildren: () =>
-      import('./india-timeline/india-timeline-routing.module').then(
-        (m) => m.IndiaTimelineRoutingModule
+      import('./india-timeline/india-timeline.module').then(
+        (m) => m.IndiaTimelineModule
       ),
   },
   {
     path: 'tweets',
     loadChildren: () =>
-      import('./tweets/tweets-routing.module').then(
-        (m) => m.TweetsRoutingModule
+      import('./tweets/tweets.module').then(
+        (m) => m.TweetsModule
       ),
   },
   {
     path: 'gallery',
     loadChildren: () =>
-      import('./gallery/gallery-routing.module').then(
-        (m) => m.GalleryRoutingModule
+      import('./gallery/gallery.module').then(
+        (m) => m.GalleryModule
       ),
   },
   {
     path: '**',
     loadChildren: () =>
-      import('./page-not-found/page-not-found-routing.module').then(
-        (m) => m.PageNotFoundRoutingModule
+      import('./page-not-found/page-not-found.module').then(
+        (m) => m.PageNotFoundModule
       ),
   },
 ];

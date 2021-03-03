@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavModule } from './nav/nav.module';
 import { FooterModule } from './footer/footer.module';
-import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +15,6 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     HttpClientModule,
     NavModule,
-    HomeModule,
     FooterModule,
     BrowserAnimationsModule,
   ],
