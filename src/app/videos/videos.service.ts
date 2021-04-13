@@ -39,7 +39,7 @@ export class VideosService {
     if (additionalQuerySet["pageToken"]) {
       this.paramsDict["pageToken"] = additionalQuerySet["pageToken"];
     }
-    this.paramsDict["key"] = keys[this.index];
+    this.paramsDict["key"] = keys[this.index % keys.length];
     if (!additionalQuerySet["refreshResult"] && this.response) {
       return of(this.response);
     } else {
