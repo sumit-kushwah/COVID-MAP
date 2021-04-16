@@ -1,5 +1,5 @@
 {
   "projects": {
-    "covid": "coronavirus19-map"
+    "default": "coronavirus19-map"
   }
 }
