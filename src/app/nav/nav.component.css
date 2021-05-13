@@ -15,3 +15,9 @@
   color: #73f280;
   font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+@media(max-width: 500px) {
+  .maintitle {
+    font-size: 20px;
+  }
+}
