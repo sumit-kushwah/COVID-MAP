@@ -9,3 +9,10 @@
     grid-template-columns: auto;
   }
 }
+
+@media(min-width: 501px) and (max-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
