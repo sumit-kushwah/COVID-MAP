@@ -31,10 +31,8 @@
       </button>
     </p>
   </div>
-  <div class="row" *ngFor="let i of rows">
-    <div class="col" *ngFor="let j of cols">
-      <app-video-item [url]="urls[3 * i + j]"></app-video-item>
-    </div>
+  <div class="grid">
+      <app-video-item  *ngFor="let url of urls" [url]="url"></app-video-item>
   </div>
   <div class="row" style="margin-top: 20px">
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
