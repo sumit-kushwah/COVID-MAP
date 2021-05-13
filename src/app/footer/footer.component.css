@@ -8,3 +8,14 @@
   flex-shrink: none;
   font-family: 'Nunito', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.footer {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.copyright, .contact, .counts {
+  padding: 10px 5px;
+}
